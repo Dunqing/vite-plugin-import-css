@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-import-css",
   "version": "0.0.0",
-  "description": "vite-plugin-vite-plugin-import-css",
+  "description": "Help your lib import css files through vite plugin",
   "license": "MIT",
   "author": "DengQing <dengqing0821@gmail.com>",
   "repository": {
