@@ -1,0 +1,10 @@
+{
+  "name": "import-css",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite-plugin-import-css": "workspace:*",
+    "vite": "^2.9.13"
+  }
+}
