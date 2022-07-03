@@ -1,19 +1,34 @@
-import type { Plugin } from 'vite'
-import type { FilterPattern } from '@rollup/pluginutils'
-import { createFilter } from '@rollup/pluginutils'
+import type { Plugin, ResolvedConfig } from 'vite'
 
 interface PluginOptions {
-  include?: FilterPattern
-  exclude?: FilterPattern
+  /**
+   * @default './style.css'
+   */
+  cssFile: string
 }
 
-export default function plugin({ include = [], exclude = [] }: PluginOptions = {}): Plugin {
-  const filter = createFilter(include, exclude)
+export default function plugin({ cssFile }: PluginOptions = {
+  cssFile: './style.css'
+}): Plugin {
+  let config: ResolvedConfig; 
   return {
     name: 'vite-plugin-import-css',
-    resolveId(id: string) {
-      if (!filter(id))
-        return undefined
+    apply: 'build',
+    configResolved(_config) {
+      config = _config
     },
+    renderChunk(code, chunk, options) {
+      if (!config.build.lib) {
+        throw new Error('Works in lib mode only')
+      }
+
+      if (!chunk.isEntry) {
+        return code
+      }
+
+      const importName = options.format === 'es' ? 'import' : 'require'
+
+      return code.replace(/^(['"]use\sstrict['"];)?/, `$1\n${importName}(${JSON.stringify(cssFile)});\n`);
+    }
   }
 }
