@@ -1,0 +1,58 @@
+{
+  "name": "vite-plugin-import-css",
+  "version": "0.0.0",
+  "description": "vite-plugin-vite-plugin-import-css",
+  "license": "MIT",
+  "author": "DengQing <dengqing0821@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dunqing/vite-plugin-import-css.git"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "vite-plugin"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "play": "pnpm run --filter ./playground dev",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "homepage": "https://github.com/Dunqing/vite-plugin-import-css#readme",
+  "bugs": {
+    "url": "https://github.com/Dunqing/vite-plugin-import-css/issues"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^4.2.1",
+    "vite": "^2.9.13"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@types/node": "^18.0.0",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.19.0",
+    "pnpm": "^7.5.0",
+    "tsup": "^6.1.3",
+    "typescript": "^4.7.4",
+    "vitest": "^0.16.0"
+  }
+}
