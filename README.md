@@ -1,27 +1,8 @@
 # vite-plugin-import-css
 
+Help your lib import css files through vite plugin.
+
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-import-css.svg)](https://npmjs.org/package/vite-plugin-import-css)
-
-## How to use this template?
-
-### Github Template
-
-[Click use this template](https://github.com/Dunqing/vite-plugin-starter/generate)
-
-### Clone to local
-
-```bash
-npx degit Dunqing/vite-plugin-starter vite-plugin-name
-
-cd vite-plugin-name
-
-# Replace all vite-plugin-import-css with your package name
-
-pnpm i
-```
-
-
-
 
 ## Install
 
@@ -43,18 +24,12 @@ export default defineConfig({
 
 ### Options
 
-#### `include`
+#### `cssFile`
 
-Type: `string` | `Array<string>`<br>
-Default: `[]`
+Type: `string` <br>
+Default: `./style.css`
 
-Files to include in this plugin (default all).
+The default is `./style.css`, which is useful when you have changed the name using `assetFileName`.
 
-#### `exclude`
-
-Type: `string` | `Array<string>`<br>
-Default: `[]`
-
-Files to exclude in this plugin (default none).
 
 [LICENSE (MIT)](/LICENSE)
