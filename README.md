@@ -4,7 +4,7 @@ Help your lib import css files through vite plugin.
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-import-css.svg)](https://npmjs.org/package/vite-plugin-import-css)
 
-## Install
+## Installation
 
 ```bash
 pnpm add vite-plugin-import-css -D
