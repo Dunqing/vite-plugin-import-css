@@ -9,16 +9,32 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          registry-url: https://registry.npmjs.org/
-      - run: npm i -g pnpm @antfu/ni
-      - run: nci
-      - run: nr test --if-present
-      - run: npx conventional-github-releaser -p angular
+          node-version: 16.x
+          cache: pnpm
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npx changelogithub
+        continue-on-error: true
         env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Install dependencies
+        run: pnpm install --registry=https://registry.npmmirror.com
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Publish to NPM
+        run: pnpm --filter {packages/*} --filter {templates/*} publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
