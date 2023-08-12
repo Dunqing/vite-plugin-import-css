@@ -28,13 +28,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Install dependencies
-        run: pnpm install --registry=https://registry.npmmirror.com
+      - name: Install Dependencies
+        run: pnpm i
 
-      - name: Build
+      - name: PNPM build
         run: pnpm run build
 
       - name: Publish to NPM
-        run: pnpm publish --access public --no-git-checks
+        run: pnpm -r publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
