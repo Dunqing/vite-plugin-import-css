@@ -31,5 +31,12 @@ Default: `./style.css`
 
 The default is `./style.css`, which is useful when you have changed the name using `assetFileName`.
 
+#### `dynamicImport`
+
+Type: `boolean` <br>
+Default: `false`
+
+If `true`, the plugin will use `import()` to import css files in esm.
+
 
 [LICENSE (MIT)](/LICENSE)

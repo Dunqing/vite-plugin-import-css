@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import importCss from "vite-plugin-import-css"
+import importCss from 'vite-plugin-import-css'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,12 +7,12 @@ export default defineConfig({
     lib: {
       entry: 'src/index.js',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'cjs' ? 'js' : 'mjs'}`,
+      fileName: format => `index.${format === 'cjs' ? 'js' : 'mjs'}`,
     },
     emptyOutDir: false,
     rollupOptions: {
-      external: ['vite']
+      external: ['vite'],
     },
   },
-  plugins: [importCss()]
+  plugins: [importCss()],
 })

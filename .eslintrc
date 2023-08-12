@@ -1,5 +1,13 @@
 {
   "extends": [
     "@antfu"
+  ],
+  "overrides": [
+    {
+      "files": ["examples/**/*"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
   ]
 }
