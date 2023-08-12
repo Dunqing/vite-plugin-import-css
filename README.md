@@ -1,8 +1,10 @@
 # vite-plugin-import-css
 
-Help your lib import css files through vite plugin.
+This vite plugin will help you library import `style.css` file automatically.
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-import-css.svg)](https://npmjs.org/package/vite-plugin-import-css)
+[![NPM license](https://img.shields.io/npm/l/vite-plugin-import-css.svg)](https://npmjs.org/package/vite-plugin-import-css)
+[![NPM total downloads](https://img.shields.io/npm/dt/vite-plugin-import-css.svg)](https://npmjs.org/package/vite-plugin-import-css)
 
 ## Installation
 
